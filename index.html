@@ -12,15 +12,21 @@
 
         var $tweets = $('.tweets');
         var $users = $('.users');
+        var userFilter = 'all';
 
         var appendTweet = function(tweet) {
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.html('<div class="tweetHeader">@' + tweet.user + ' - ' + tweet.created_at + '</div>' +
-            '<div class="tweetBody">' + tweet.message + '</div><hr>');
-          $tweet.appendTo($tweets);
+          if (userFilter === 'all' || userFilter === tweet.user) {
+            var $tweet = $('<div class="tweet"></div>');
+            $tweet.html('<div class="tweetHeader"><span class="user">@' + tweet.user + '</span> - ' + tweet.created_at + '</div>' +
+              '<div class="tweetBody">' + tweet.message + '</div><hr>');
+            $tweet.appendTo($tweets);
+          }
         };
 
         var initTweets = function() {
+          streams.home.sort(function(a, b) {
+            return b.created_at - a.created_at;
+          });
           var index = streams.home.length - 1;
           while(index >= 0){
             appendTweet(streams.home[index])
@@ -30,13 +36,23 @@
 
         var initUsers = function() {
           for (var user in streams.users) {
-            $users.append('<div class="user">' + user + '</div>');
+            $users.append('<div class="user">@' + user + '</div>');
           }
+
         }
 
         // Tweet event listener
         $(document).on('tweet', function(event, tweet) {
           appendTweet(tweet);
+        });
+
+        $(document).on('click', '.user', function(event) {
+          userFilter = event.target.innerText.slice(1);
+          if (userFilter === 'how All') {
+            userFilter = 'all';
+          }
+          $tweets.empty();
+          initTweets();
         });
 
         initTweets();
@@ -47,6 +63,9 @@
     </script>
 
     <div class="users">
+      <div class="user">
+        Show All
+      </div>
 
     </div>
 
