@@ -1,8 +1,18 @@
-.tweet {
+body {
+	max-width: 600px;
+	margin: auto;
+}
 
+.users {
+	max-width: 20%;
+	float: left;
 }
 
 .tweets {
-	max-width: 500px;
-	margin: auto;
+	max-width: 75%;
+	float: right;
+}
+
+.tweet {
+
 }
