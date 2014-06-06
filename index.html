@@ -2,6 +2,8 @@
 <html>
   <head>
     <script src="jquery.js"></script>
+    <script src="moment.min.js"></script>
+    <script src="livestamp.js"></script>
     <script src="data_generator.js"></script>
     <link href="styles.css" rel="stylesheet">
   </head>
@@ -17,7 +19,8 @@
         var appendTweet = function(tweet) {
           if (userFilter === 'all' || userFilter === tweet.user) {
             var $tweet = $('<div class="tweet"></div>');
-            $tweet.html('<div class="tweetHeader"><span class="user">@' + tweet.user + '</span> - ' + tweet.created_at + '</div>' +
+            $tweet.html('<div class="tweetHeader"><span class="user">@' + tweet.user + '</span> - ' + 
+              '<span data-livestamp="' + tweet.created_at + '"></span></div>' +
               '<div class="tweetBody">' + tweet.message + '</div><hr>');
             $tweet.appendTo($tweets);
           }
