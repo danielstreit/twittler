@@ -6,6 +6,7 @@ body {
 .users {
 	max-width: 20%;
 	float: left;
+	position: fixed;
 }
 
 .tweets {
