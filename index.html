@@ -11,8 +11,9 @@
       $(document).ready(function(){
 
         var appendTweet = function(tweet) {
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' - ' + tweet.created_at);
+          var $tweet = $('<div class="tweet"></div>');
+          $tweet.html('<div class="tweetHeader">@' + tweet.user + ' - ' + tweet.created_at + '</div>' +
+            '<div class="tweetBody">' + tweet.message + '</div><hr>');
           $tweet.appendTo($tweets);
         };
 
