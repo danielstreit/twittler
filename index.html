@@ -25,17 +25,29 @@
           }
         };
 
+        var initUsers = function() {
+          for (var user in streams.users) {
+            $users.append('<div class="user">' + user + '</div>');
+          }
+        }
+
         // Tweet event listener
         $(document).on('tweet', function(event, tweet) {
           appendTweet(tweet);
         });
 
         var $tweets = $('.tweets');
+        var $users = $('.users');
         initTweets();
+        initUsers();
 
       });
 
     </script>
+
+    <div class="users">
+
+    </div>
 
     <div class='tweets'>
 
