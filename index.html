@@ -12,7 +12,7 @@
         var appendTweet = function(tweet) {
           var $tweet = $('<div></div>');
           $tweet.text('@' + tweet.user + ': ' + tweet.message + ' - ' + tweet.created_at);
-          $tweet.appendTo($body);
+          $tweet.appendTo($tweets);
         };
 
         var initTweets = function() {
@@ -28,12 +28,16 @@
           appendTweet(tweet);
         });
 
-        var $body = $('body');
-        $body.html('');
+        var $tweets = $('.tweets');
         initTweets();
 
       });
 
     </script>
+
+    <div class='tweets'>
+
+    </div>
+
   </body>
 </html>
