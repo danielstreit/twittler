@@ -22,7 +22,12 @@
             index -= 1;
           }
         }
-        
+
+        // Tweet event listener
+        $(document).on('tweet', function(event, tweet) {
+          appendTweet(tweet);
+        });
+
         var $body = $('body');
         $body.html('');
         initTweets();
