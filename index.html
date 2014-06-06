@@ -8,7 +8,10 @@
   <body>
     <script>
 
-      $(document).ready(function(){
+      $(document).ready(function() {
+
+        var $tweets = $('.tweets');
+        var $users = $('.users');
 
         var appendTweet = function(tweet) {
           var $tweet = $('<div class="tweet"></div>');
@@ -36,8 +39,6 @@
           appendTweet(tweet);
         });
 
-        var $tweets = $('.tweets');
-        var $users = $('.users');
         initTweets();
         initUsers();
 
