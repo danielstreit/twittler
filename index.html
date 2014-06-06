@@ -8,8 +8,6 @@
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
 
         var appendTweet = function(tweet) {
           var $tweet = $('<div></div>');
@@ -17,11 +15,17 @@
           $tweet.appendTo($body);
         }
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          appendTweet(streams.home[index])
-          index -= 1;
+        var initTweets = function() {
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            appendTweet(streams.home[index])
+            index -= 1;
+          }
         }
+        
+        var $body = $('body');
+        $body.html('');
+        initTweets();
 
       });
 
