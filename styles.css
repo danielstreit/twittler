@@ -13,6 +13,11 @@ textarea {
   position: fixed;
 }
 
+.close {
+  float: right;
+  color: red;
+}
+
 .users {
 
 }

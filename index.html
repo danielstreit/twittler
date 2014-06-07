@@ -20,7 +20,7 @@
           if (userFilter === 'all' || userFilter === tweet.user) {
             var $tweet = $('<div class="tweet"></div>');
             $tweet.html('<div class="tweetHeader"><span class="user">@' + tweet.user + '</span> - ' + 
-              '<span data-livestamp="' + tweet.created_at + '"></span></div>' +
+              '<span data-livestamp="' + tweet.created_at + '"></span><span class="close">X</span></div>' +
               '<div class="tweetBody">' + tweet.message + '</div><hr>');
             $tweet.appendTo($tweets);
           }
@@ -71,6 +71,10 @@
             writeTweet(message);
             $('#twitInput').val('');
           }
+        });
+
+        $tweets.on('click', '.close', function(event) {
+          $(this).parent().parent().remove();
         });
 
         initTweets();
