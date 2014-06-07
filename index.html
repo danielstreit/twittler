@@ -38,6 +38,8 @@
         };
 
         var initUsers = function() {
+          $users.empty();
+          $users.append('<div class="user">Show All</div>')
           for (var user in streams.users) {
             $users.append('<div class="user">@' + user + '</div>');
           }
@@ -58,6 +60,19 @@
           initTweets();
         });
 
+        $('#twitButton').on('click', function(event) {
+          var message = $('#twitInput').val();
+          if (message) {
+            window.visitor = $('#handleInput').val() || 'guest';
+            if (!(visitor in streams.users)) {
+              streams.users[visitor] = [];
+              initUsers();
+            }
+            writeTweet(message);
+            $('#twitInput').val('');
+          }
+        });
+
         initTweets();
         initUsers();
 
@@ -69,16 +84,16 @@
       <header><h1>Twittler</h1></header>
       <div class="tweetFormDiv">
         <form class="tweetForm">
-          <input type="text" name="handle" placeholder="Enter a handle" size="25" />
+          <input id="handleInput" type="text" name="handle" placeholder="Enter a handle" size="25" />
           <br>
-          <textarea placeholder="Have something to say in 140 charachters?" maxlength="140" cols="20" rows="3"></textarea>
+          <textarea id="twitInput" placeholder="Have something worth saying in 140 charachters?" maxlength="140" cols="20" rows="3"></textarea>
           <br>
-          <input type="button" value="Twittler-it!" name="send" />
+          <input id="twitButton" type="button" value="Twittler-it!" name="send" />
         </form>
       </div>
       <hr>
+      <h3>Users</h3>
       <div class="users">
-        <h3>Users</h3>
         <div class="user">
           Show All
         </div>
