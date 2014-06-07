@@ -1,5 +1,5 @@
 body {
-	max-width: 600px;
+	max-width: 500px;
 	margin: auto;
 }
 
@@ -8,7 +8,7 @@ textarea {
 }
 
 .fixed {
-  max-width: 30%;
+  max-width: 40%;
   float: left;
   position: fixed;
 }
@@ -23,7 +23,7 @@ textarea {
 }
 
 .tweets {
-	width: 65%;
+	width: 60%;
 	float: right;
 }
 
