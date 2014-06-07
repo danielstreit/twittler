@@ -3,14 +3,22 @@ body {
 	margin: auto;
 }
 
+textarea {
+  resize: none;
+}
+
+.fixed {
+  max-width: 30%;
+  float: left;
+  position: fixed;
+}
+
 .users {
-	max-width: 20%;
-	float: left;
-	position: fixed;
+
 }
 
 .tweets {
-	width: 75%;
+	width: 65%;
 	float: right;
 }
 
